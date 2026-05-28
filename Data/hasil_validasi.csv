@@ -1,0 +1,6 @@
+nama,nilai,status
+Davis,15000,VALID
+Andi,-5000,INVALID
+Budi,25000,VALID
+Citra,0,PERLU DICEK
+Deni,50000,VALID

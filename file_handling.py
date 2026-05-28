@@ -33,4 +33,29 @@ with open("data/transaksi.csv", "r") as file:
             print(f"{nama} - INVALID: {nilai}")
 
 
+# Tulis hasil validasi ke file baru
+with open("data/hasil_validasi.csv", "w") as output:
+     # Tulis header dulu
+     output.write("nama,nilai,status\n")
+
+with open("data/transaksi.csv", "r") as file:
+    header = file.readline()
+
+    for baris in file:
+        kolom = baris.strip().split(",")
+        nama = kolom[1]
+        nilai = int(kolom[2])
+
+        if nilai > 0:
+            status = "VALID"
+        elif nilai == 0:
+            status = "PERLU DICEK"
+        else:
+            status = "INVALID"
+        
+        with open("data/hasil_validasi.csv", "a") as output:
+            output.write(f"{nama},{nilai},{status}\n")
+
+print("Selesai - cek file hasil_validasi")
+
 
