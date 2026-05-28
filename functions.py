@@ -29,9 +29,11 @@ transaksi_maret = [45000, -1500, 47000]
 # validasi_transaksi(transaksi_februari)
 # validasi_transaksi(transaksi_maret)
 
+#defensive programming 
 def hitung_total_valid(list_transaksi):
     total = 0
     for nilai in list_transaksi:
+        nilai = int(nilai)
         if nilai > 0:
             total = total + nilai
     return total
@@ -44,3 +46,6 @@ gabungan = total_januari + total_februari
 print(f"Total valid Januari: {total_januari}")
 print(f"Total valid Februari: {total_februari}")
 print(f"Total valid Gabungan: {gabungan}")
+
+transaksi_string = ["15000", "-5000", "25000"]
+print(hitung_total_valid(transaksi_string))
