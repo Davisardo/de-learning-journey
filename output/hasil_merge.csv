@@ -1,0 +1,6 @@
+user_id,nama,nilai_transaksi,kategori
+1,Davis,15000,Premium
+2,Andi,-5000,Regular
+3,Budi,25000,Premium
+4,Citra,0,Regular
+5,Deni,50000,Unknown
