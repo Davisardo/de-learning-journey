@@ -16,12 +16,12 @@ print(nama_upper)
 username = email.split("@")[0]
 print(username)
 
-# 4. Pisah tanggal 
+# 4. Pisah tanggal
 bagian_tanggal = tanggal.split("-")
 print(bagian_tanggal)
 
 # 5. Hapus karakter tidak perlu
-harga_bersih = harga.replace("Rp ","").replace(".","")
+harga_bersih = harga.replace("Rp ", "").replace(".", "")
 print(harga_bersih)
 
 tahun = tanggal.split("-")[0]

@@ -20,4 +20,3 @@ with open("ringkasan.txt", "w") as hasil:
     hasil.write(f"Total transaksi valid: {total_valid}\n")
     hasil.write(f"Total transaksi invalid: {total_invalid}\n")
     hasil.write(f"Total transaksi perlu dicek: {total_perlu_dicek}\n")
-    
