@@ -8,14 +8,14 @@ conn = sqlite3.connect("fase_b/sql_practice.db")
 # conn.executescript("""
 #     DROP TABLE IF EXISTS transaksi;
 #     DROP TABLE IF EXISTS users;
-    
+
 #     CREATE TABLE users (
 #         user_id INTEGER,
 #         nama TEXT,
 #         kota TEXT,
 #         kategori TEXT
 #     );
-    
+
 #     CREATE TABLE transaksi (
 #         trx_id INTEGER,
 #         user_id INTEGER,
@@ -23,14 +23,14 @@ conn = sqlite3.connect("fase_b/sql_practice.db")
 #         nilai INTEGER,
 #         tanggal TEXT
 #     );
-    
-#     INSERT INTO users VALUES 
+
+#     INSERT INTO users VALUES
 #         (1, 'Davis', 'Surabaya', 'Premium'),
 #         (2, 'Andi', 'Jakarta', 'Regular'),
 #         (3, 'Budi', 'Surabaya', 'Premium'),
 #         (4, 'Citra', 'Bandung', 'Regular'),
 #         (5, 'Deni', 'Jakarta', 'Premium');
-    
+
 #     INSERT INTO transaksi VALUES
 #         (1, 1, 'Laptop', 8000000, '2026-01-01'),
 #         (2, 1, 'Mouse', 150000, '2026-01-02'),
@@ -49,8 +49,9 @@ conn.close()
 conn = sqlite3.connect("fase_b/sql_practice.db")
 
 # 1. JOIN — gabungkan users dan transaksi
-print ("=== JOIN ===")
-df = pd.read_sql("""
+print("=== JOIN ===")
+df = pd.read_sql(
+    """
     SELECT
         t.trx_id,          
         u.nama,
@@ -59,12 +60,15 @@ df = pd.read_sql("""
         t.nilai
     FROM transaksi t
     JOIN users u ON t.user_id = u.user_id                 
-""",conn)
+""",
+    conn,
+)
 print(df)
 
 # 2. GROUP BY dan HAVING
 print("=== GROUP BY dan HAVING ===")
-df2 = pd.read_sql("""
+df2 = pd.read_sql(
+    """
         SELECT
             u.nama,
             COUNT(t.trx_id) as jumlah_transaksi,
@@ -74,12 +78,15 @@ df2 = pd.read_sql("""
     GROUP BY u.nama
     HAVING total_nilai > 1000000
     ORDER BY total_nilai DESC
-""", conn)
+""",
+    conn,
+)
 print(df2)
 
 # 3. Window Functions
 print("=== WINDOW FUNCTIONS ===")
-df3 = pd.read_sql("""
+df3 = pd.read_sql(
+    """
         SELECT
             u.nama,
             t.produk,
@@ -88,5 +95,54 @@ df3 = pd.read_sql("""
             RANK() OVER (ORDER BY t.nilai DESC) as rangking
         FROM transaksi t
         JOIN users u ON t.user_id = u.user_id
-""", conn)
+""",
+    conn,
+)
 print(df3)
+
+# 4. CTE
+print("=== CTE ===")
+df4 = pd.read_sql(
+    """
+    WITH transaksi_per_user AS (
+        SELECT
+            user_id,
+            COUNT(*) as jumlah_transaksi,
+            SUM(nilai) as total_nilai
+        FROM transaksi
+        GROUP BY user_id
+    )
+    SELECT
+        u.nama,
+        u.kota,
+        t.jumlah_transaksi,
+        t.total_nilai
+    FROM transaksi_per_user t
+    JOIN users u ON t.user_id = u.user_id
+    ORDER BY t.total_nilai DESC
+""",
+    conn,
+)
+print(df4)
+
+# 5. Indexing
+print("=== INDEXING ===")
+conn2 = sqlite3.connect("fase_b/sql_practice.db")
+
+# Tanpa index — database scan semua baris
+import time
+
+start = time.time()
+pd.read_sql("SELECT * FROM transaksi WHERE user_id = 2", conn2)
+print(f"Tanpa index: {time.time() - start:.4f} detik")
+
+# Buat index
+conn2.execute("CREATE INDEX IF NOT EXISTS idx_user_id ON transaksi(user_id)")
+conn2.commit()
+
+# Dengan index
+start = time.time()
+pd.read_sql("SELECT * FROM transaksi WHERE user_id = 2", conn2)
+print(f"Dengan index: {time.time() - start:.4f} detik")
+
+conn2.close()
