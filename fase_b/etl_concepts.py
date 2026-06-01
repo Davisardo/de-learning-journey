@@ -25,6 +25,7 @@ def transform(df):
     df["processed_at"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     return df
 
+
 def load(df, db_path, table_name):
     """Load data ke database"""
     try:
@@ -35,11 +36,14 @@ def load(df, db_path, table_name):
     except Exception as e:
         logging.error(f"Load gagal: {e}")
         raise
+
+
 def run_pipeline():
     logging.info("Pipeline dimulai")
     df = extract("data/transaksi.csv")
     df = transform(df)
     load(df, "fase_b/pipeline.db", "transaksi")
     logging.info("Pipeline selesai")
+
 
 run_pipeline()
