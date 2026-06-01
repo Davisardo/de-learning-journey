@@ -146,3 +146,19 @@ pd.read_sql("SELECT * FROM transaksi WHERE user_id = 2", conn2)
 print(f"Dengan index: {time.time() - start:.4f} detik")
 
 conn2.close()
+
+# 6. LAG dan LEAD
+print("=== LAG dan LEAD ===")
+df5 = pd.read_sql(
+    """
+    SELECT
+        u.nama,
+        t.tanggal,
+        t.nilai,
+        LAG(t.nilai) OVER (PARTITION BY t.user_id ORDER BY t.tanggal) as nilai_sebelumnya,
+        LEAD(t.nilai) OVER (PARTITION BY t.user_id ORDER BY t.tanggal) as nili_berikutnya
+    FROM transaksi t
+    JOIN users u ON t.user_id = u.user_id
+    ORDER BY u.nama, t.tanggal
+""",conn)
+print(df5)
