@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: transaksi_clean
+    description: "Data transaksi yang sudah dibersihkan"
+    columns:
+      - name: user_id
+        description: "ID unik user"
+        tests:
+          - not_null
+      - name: nilai_transaksi
+        description: "Nilai transaksi dalam rupiah"
+        tests:
+          - not_null
+      - name: status
+        description: "Status validasi transaksi"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['VALID', 'INVALID', 'PERLU DICEK']
