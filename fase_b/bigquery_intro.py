@@ -3,8 +3,7 @@ import pandas as pd
 import logging
 
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 
@@ -36,8 +35,8 @@ except Exception as e:
 # Load data dari CSV ke BigQuery
 
 df = pd.read_csv("data/transaksi.csv")
-df["status"] = df ["nilai_transaksi"].apply(
-    lambda x: "VALID" if x > 0 else ("PERLU DICEK" if x == 0 else "INVALID")       
+df["status"] = df["nilai_transaksi"].apply(
+    lambda x: "VALID" if x > 0 else ("PERLU DICEK" if x == 0 else "INVALID")
 )
 
 job = client.load_table_from_dataframe(df, table_id)
