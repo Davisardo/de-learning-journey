@@ -1,21 +1,21 @@
 services:
-  kafka:
-    image: confluentinc/cp-kafka:7.4.0
+  postgres:
+    image: postgres:15
     environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      POSTGRES_DB: crypto_db
+      POSTGRES_USER: davis
+      POSTGRES_PASSWORD: davis123
     ports:
-      - "9092:9092"
-    depends_on:
-      - zookeeper
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
-  zookeeper:
-    image: confluentinc/cp-zookeeper:7.4.0
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
+  metabase:
+    image: metabase/metabase:latest
     ports:
-      - "2181:2181"
+      - "3000:3000"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
