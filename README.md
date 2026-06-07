@@ -1,11 +1,3 @@
-markdown# Crypto ETL Pipeline
-
-Pipeline data end-to-end yang mengambil data harga cryptocurrency secara otomatis,
-membersihkan dan mentransformasinya, lalu menyimpannya ke database PostgreSQL
-untuk divisualisasikan via Metabase.
-
----
-
 ## Arsitektur
 CoinGecko API
 │
