@@ -1,0 +1,26 @@
+version: 2
+
+
+sources:
+  - name: de_learning
+    database: amplified-ward-416314
+    schema: de_learning
+    tables:
+      - name: fact_payments
+      - name: dim_orders
+      - name: dim_customers
+      - name: dim_products
+
+models:
+  - name: mart_payment_summary
+    columns:
+      - name: payment_type
+        data_tests:
+          - not_null
+          - unique
+      - name: jumlah_transaksi
+        data_tests:
+          - not_null
+      - name: total_nilai
+        data_tests:
+          - not_null
