@@ -1,0 +1,136 @@
+2026-06-11 14:22:59,160 - INFO - === Consumer dimulai ===
+2026-06-11 14:22:59,272 - INFO - Koneksi PostgreSQL berhasil
+2026-06-11 14:22:59,274 - INFO - Updating subscribed topics to: ('transactions',)
+2026-06-11 14:22:59,281 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to 127.0.0.1:9092 [('127.0.0.1', 9092) IPv4]
+2026-06-11 14:22:59,283 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=bootstrap-0 host=127.0.0.1:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2026-06-11 14:22:59,297 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2026-06-11 14:22:59,299 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2026-06-11 14:22:59,300 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=bootstrap-0 host=127.0.0.1:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2026-06-11 14:22:59,421 - INFO - Coordinator for group/transaction-consumer-group is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2026-06-11 14:22:59,421 - INFO - Discovered coordinator coordinator-1 for group transaction-consumer-group
+2026-06-11 14:22:59,422 - INFO - Starting new heartbeat thread
+2026-06-11 14:22:59,424 - INFO - Revoking previously assigned partitions set() for group transaction-consumer-group
+2026-06-11 14:22:59,424 - INFO - Failed to join group transaction-consumer-group: NodeNotReadyError: coordinator-1
+2026-06-11 14:22:59,425 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2026-06-11 14:22:59,427 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2026-06-11 14:22:59,528 - INFO - (Re-)joining group transaction-consumer-group
+2026-06-11 14:22:59,669 - INFO - Received member id kafka-python-2.3.2-55bd48b6-22f1-4ad7-9292-de244d752139 for group transaction-consumer-group; will retry join-group
+2026-06-11 14:22:59,670 - INFO - Failed to join group transaction-consumer-group: [Error 79] MemberIdRequiredError
+2026-06-11 14:22:59,670 - INFO - (Re-)joining group transaction-consumer-group
+2026-06-11 14:23:02,717 - INFO - Successfully joined group transaction-consumer-group <Generation 5 (member_id: kafka-python-2.3.2-55bd48b6-22f1-4ad7-9292-de244d752139, protocol: range)>
+2026-06-11 14:23:02,717 - INFO - Elected group leader -- performing partition assignments using range
+2026-06-11 14:23:02,786 - INFO - Updated partition assignment: [TopicPartition(topic='transactions', partition=0)]
+2026-06-11 14:23:02,789 - INFO - Setting newly assigned partitions {TopicPartition(topic='transactions', partition=0)} for group transaction-consumer-group
+2026-06-11 14:23:02,983 - INFO - [OK] ORD-99738 | phone | 1312437.81
+2026-06-11 14:23:02,994 - INFO - [OK] ORD-17421 | monitor | 4679586.69
+2026-06-11 14:23:03,008 - INFO - [OK] ORD-55957 | headset | 2576875.28
+2026-06-11 14:23:03,021 - INFO - [OK] ORD-73770 | monitor | 58185.38
+2026-06-11 14:23:03,035 - INFO - [OK] ORD-56428 | headset | 454862.73
+2026-06-11 14:23:03,053 - INFO - [OK] ORD-53181 | laptop | 1238548.0
+2026-06-11 14:23:03,064 - INFO - [OK] ORD-60523 | headset | 173563.77
+2026-06-11 14:23:03,076 - INFO - [OK] ORD-94304 | keyboard | 2538205.39
+2026-06-11 14:23:03,167 - INFO - [OK] ORD-18774 | keyboard | 3222638.51
+2026-06-11 14:23:04,163 - INFO - [OK] ORD-18123 | monitor | 2999200.62
+2026-06-11 14:23:04,163 - INFO - === Stats: 10 sukses | 0 error | 5 detik berjalan ===
+2026-06-11 14:23:05,165 - INFO - [OK] ORD-21109 | monitor | 2721250.93
+2026-06-11 14:23:06,165 - INFO - [OK] ORD-56031 | headset | 1097577.21
+2026-06-11 14:23:07,183 - INFO - [OK] ORD-19452 | headset | 4947188.66
+2026-06-11 14:23:08,184 - INFO - [OK] ORD-77441 | monitor | 2547145.9
+2026-06-11 14:23:09,196 - INFO - [OK] ORD-69585 | laptop | 3781827.8
+2026-06-11 14:23:10,180 - INFO - [OK] ORD-18409 | laptop | 1257787.63
+2026-06-11 14:23:11,194 - INFO - [OK] ORD-26112 | headset | 4078698.95
+2026-06-11 14:23:12,183 - INFO - [OK] ORD-75895 | monitor | 2449820.72
+2026-06-11 14:23:13,186 - INFO - [OK] ORD-36635 | laptop | 399669.77
+2026-06-11 14:23:14,202 - INFO - [OK] ORD-77974 | headset | 4240281.36
+2026-06-11 14:23:14,203 - INFO - === Stats: 20 sukses | 0 error | 15 detik berjalan ===
+2026-06-11 14:23:15,207 - INFO - [OK] ORD-86793 | phone | 1688601.9
+2026-06-11 14:23:16,204 - INFO - [OK] ORD-26794 | monitor | 2472286.69
+2026-06-11 14:23:17,194 - INFO - [OK] ORD-42857 | headset | 4782397.66
+2026-06-11 14:23:18,196 - INFO - [OK] ORD-33288 | keyboard | 4651622.12
+2026-06-11 14:23:19,214 - INFO - [OK] ORD-90050 | keyboard | 2126146.23
+2026-06-11 14:23:20,252 - INFO - [OK] ORD-24201 | phone | 3503972.48
+2026-06-11 14:23:21,221 - INFO - [OK] ORD-11184 | laptop | 852673.48
+2026-06-11 14:23:22,220 - INFO - [OK] ORD-54603 | headset | 2042533.65
+2026-06-11 14:23:23,221 - INFO - [OK] ORD-80623 | headset | 2191955.57
+2026-06-11 14:23:24,225 - INFO - [OK] ORD-35847 | keyboard | 2054614.74
+2026-06-11 14:23:24,226 - INFO - === Stats: 30 sukses | 0 error | 25 detik berjalan ===
+2026-06-11 14:23:25,240 - INFO - [OK] ORD-65591 | laptop | 3162544.83
+2026-06-11 14:23:26,233 - INFO - [OK] ORD-28376 | keyboard | 3401925.72
+2026-06-11 14:23:27,233 - INFO - [OK] ORD-39708 | laptop | 2868524.0
+2026-06-11 14:23:28,235 - INFO - [OK] ORD-44028 | headset | 2198861.36
+2026-06-11 14:23:29,242 - INFO - [OK] ORD-48243 | phone | 4916629.43
+2026-06-11 14:23:30,240 - INFO - [OK] ORD-50000 | keyboard | 1138013.07
+2026-06-11 14:23:31,244 - INFO - [OK] ORD-20357 | headset | 4204274.08
+2026-06-11 14:23:32,253 - INFO - [OK] ORD-93202 | monitor | 2009433.5
+2026-06-11 14:23:33,251 - INFO - [OK] ORD-88273 | monitor | 4771311.78
+2026-06-11 14:23:34,255 - INFO - [OK] ORD-27712 | laptop | 2152700.73
+2026-06-11 14:23:34,256 - INFO - === Stats: 40 sukses | 0 error | 35 detik berjalan ===
+2026-06-11 14:23:35,249 - INFO - [OK] ORD-69216 | monitor | 576042.06
+2026-06-11 14:23:36,258 - INFO - [OK] ORD-48571 | keyboard | 1907641.55
+2026-06-11 14:23:37,272 - INFO - [OK] ORD-77483 | keyboard | 942071.29
+2026-06-11 14:23:38,279 - INFO - [OK] ORD-96482 | laptop | 2368151.76
+2026-06-11 14:23:39,267 - INFO - [OK] ORD-82692 | headset | 1172466.51
+2026-06-11 14:23:40,269 - INFO - [OK] ORD-22295 | monitor | 3295364.68
+2026-06-11 14:23:41,269 - INFO - [OK] ORD-42732 | laptop | 2131879.75
+2026-06-11 14:23:42,273 - INFO - [OK] ORD-87079 | keyboard | 3811237.29
+2026-06-11 14:23:43,275 - INFO - [OK] ORD-68199 | monitor | 1707911.37
+2026-06-11 14:23:44,276 - INFO - [OK] ORD-26555 | monitor | 2606410.4
+2026-06-11 14:23:44,276 - INFO - === Stats: 50 sukses | 0 error | 45 detik berjalan ===
+2026-06-11 14:23:45,277 - INFO - [OK] ORD-55558 | keyboard | 246599.62
+2026-06-11 14:23:46,280 - INFO - [OK] ORD-81638 | headset | 1429839.51
+2026-06-11 14:23:47,282 - INFO - [OK] ORD-53183 | headset | 3646085.53
+2026-06-11 14:23:48,285 - INFO - [OK] ORD-36667 | monitor | 3371900.8
+2026-06-11 14:23:49,288 - INFO - [OK] ORD-88062 | headset | 3639389.52
+2026-06-11 14:23:50,290 - INFO - [OK] ORD-72519 | keyboard | 4735689.05
+2026-06-11 14:23:51,289 - INFO - [OK] ORD-65908 | keyboard | 3994013.23
+2026-06-11 14:23:52,290 - INFO - [OK] ORD-65821 | laptop | 3274066.48
+2026-06-11 14:23:53,295 - INFO - [OK] ORD-10600 | phone | 1331476.13
+2026-06-11 14:23:54,310 - INFO - [OK] ORD-27158 | phone | 4922249.75
+2026-06-11 14:23:54,310 - INFO - === Stats: 60 sukses | 0 error | 55 detik berjalan ===
+2026-06-11 14:23:55,299 - INFO - [OK] ORD-46052 | laptop | 3271143.47
+2026-06-11 14:23:56,299 - INFO - [OK] ORD-74693 | laptop | 4178054.78
+2026-06-11 14:23:57,304 - INFO - [OK] ORD-90925 | laptop | 1977843.47
+2026-06-11 14:23:58,303 - INFO - [OK] ORD-17290 | keyboard | 1962409.21
+2026-06-11 14:23:59,306 - INFO - [OK] ORD-23269 | monitor | 3088576.13
+2026-06-11 14:24:00,306 - INFO - [OK] ORD-79499 | headset | 814892.88
+2026-06-11 14:24:01,309 - INFO - [OK] ORD-52530 | headset | 3909818.59
+2026-06-11 14:24:02,313 - INFO - [OK] ORD-51401 | laptop | 671860.74
+2026-06-11 14:24:03,336 - INFO - [OK] ORD-70364 | phone | 2088632.2
+2026-06-11 14:24:04,337 - INFO - [OK] ORD-98076 | headset | 4343748.43
+2026-06-11 14:24:04,338 - INFO - === Stats: 70 sukses | 0 error | 65 detik berjalan ===
+2026-06-11 14:24:05,329 - INFO - [OK] ORD-27428 | laptop | 4351560.53
+2026-06-11 14:24:06,332 - INFO - [OK] ORD-82716 | keyboard | 4847873.09
+2026-06-11 14:24:07,334 - INFO - [OK] ORD-70136 | monitor | 2838248.65
+2026-06-11 14:24:08,336 - INFO - [OK] ORD-44607 | monitor | 1045793.27
+2026-06-11 14:24:08,842 - INFO - === Consumer dihentikan ===
+2026-06-11 14:24:08,843 - INFO - === Total: 74 sukses | 0 error | 69 detik ===
+2026-06-11 14:24:08,843 - INFO - === Koneksi database ditutup ===
+2026-06-11 14:33:58,021 - INFO - === Consumer dimulai ===
+2026-06-11 14:33:58,153 - INFO - Koneksi PostgreSQL berhasil
+2026-06-11 14:33:58,156 - INFO - Updating subscribed topics to: ('transactions',)
+2026-06-11 14:33:58,164 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=bootstrap-0 host=127.0.0.1:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to 127.0.0.1:9092 [('127.0.0.1', 9092) IPv4]
+2026-06-11 14:33:58,165 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=bootstrap-0 host=127.0.0.1:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2026-06-11 14:33:58,322 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2026-06-11 14:33:58,324 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2026-06-11 14:33:58,324 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=bootstrap-0 host=127.0.0.1:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2026-06-11 14:33:58,445 - INFO - Coordinator for group/transaction-consumer-group is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2026-06-11 14:33:58,446 - INFO - Discovered coordinator coordinator-1 for group transaction-consumer-group
+2026-06-11 14:33:58,446 - INFO - Starting new heartbeat thread
+2026-06-11 14:33:58,448 - INFO - Revoking previously assigned partitions set() for group transaction-consumer-group
+2026-06-11 14:33:58,448 - INFO - Failed to join group transaction-consumer-group: NodeNotReadyError: coordinator-1
+2026-06-11 14:33:58,449 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2026-06-11 14:33:58,451 - INFO - <BrokerConnection client_id=kafka-python-2.3.2, node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2026-06-11 14:33:58,551 - INFO - (Re-)joining group transaction-consumer-group
+2026-06-11 14:33:58,605 - INFO - Received member id kafka-python-2.3.2-d970be00-31f9-4c72-8083-8e9cf09472b0 for group transaction-consumer-group; will retry join-group
+2026-06-11 14:33:58,606 - INFO - Failed to join group transaction-consumer-group: [Error 79] MemberIdRequiredError
+2026-06-11 14:33:58,606 - INFO - (Re-)joining group transaction-consumer-group
+2026-06-11 14:34:01,635 - INFO - Successfully joined group transaction-consumer-group <Generation 7 (member_id: kafka-python-2.3.2-d970be00-31f9-4c72-8083-8e9cf09472b0, protocol: range)>
+2026-06-11 14:34:01,635 - INFO - Elected group leader -- performing partition assignments using range
+2026-06-11 14:34:01,684 - INFO - Updated partition assignment: [TopicPartition(topic='transactions', partition=0)]
+2026-06-11 14:34:01,685 - INFO - Setting newly assigned partitions {TopicPartition(topic='transactions', partition=0)} for group transaction-consumer-group
+2026-06-11 14:34:01,772 - INFO - [OK] ORD-44607 | monitor | 1045793.27
+2026-06-11 14:34:01,778 - INFO - [OK] ORD-36132 | monitor | 2485490.61
+2026-06-11 14:34:01,785 - INFO - [OK] ORD-20855 | monitor | 4077363.47
+2026-06-11 14:35:33,811 - INFO - === Consumer dihentikan ===
+2026-06-11 14:35:33,812 - INFO - === Total: 3 sukses | 0 error | 95 detik ===
+2026-06-11 14:35:33,812 - INFO - === Koneksi database ditutup ===
