@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: fintrack_raw
+    database: amplified-ward-416314
+    schema: fintrack_fraud
+    tables:
+      - name: fact_transactions
+      - name: dim_time
+      - name: dim_amount
+      - name: dim_fraud
+      - name: dim_features

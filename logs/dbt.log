@@ -137,3 +137,32 @@ click.exceptions.Abort
 [0m13:36:59.657385 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002832DE72190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002832DEAD6D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002832DD5B130>]}
 [0m13:36:59.658036 [debug] [MainThread]: Flushing usage events
 [0m13:37:01.774973 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:12:20.432305 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002701029A660>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002700CFEF110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000027011693C50>]}
+
+
+============================== 22:12:20.447038 | 97e04407-bbf9-4352-bfb6-14233fed44f7 ==============================
+[0m22:12:20.447038 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:12:20.449415 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\ASUS Vivobook\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt init fintrack_fraud_dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m22:12:20.567386 [debug] [MainThread]: Starter project path: D:\de-learning-journey\venv\Lib\site-packages\dbt\include\starter_project
+[0m22:12:20.646881 [info ] [MainThread]: 
+Your new dbt project "fintrack_fraud_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m22:12:20.648479 [info ] [MainThread]: Setting up your profile.
+[0m22:15:06.392431 [info ] [MainThread]: Profile fintrack_fraud_dbt written to C:\Users\ASUS Vivobook\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m22:15:06.397900 [debug] [MainThread]: Command `dbt init` succeeded at 22:15:06.397525 after 166.46 seconds
+[0m22:15:06.399534 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000270240F8180>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000027024158830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000027024082CF0>]}
+[0m22:15:06.401542 [debug] [MainThread]: Flushing usage events
+[0m22:15:08.217459 [debug] [MainThread]: An error was encountered while trying to flush usage events

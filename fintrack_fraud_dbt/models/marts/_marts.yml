@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: mart_fraud_analysis
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+          - unique
+      - name: fraud_label
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Normal', 'Fraud']
+      - name: amount_bucket
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Small', 'Medium', 'Large', 'Very Large']
+      - name: time_period
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Morning', 'Afternoon', 'Evening', 'Night']
+      - name: amount
+        tests:
+          - not_null
