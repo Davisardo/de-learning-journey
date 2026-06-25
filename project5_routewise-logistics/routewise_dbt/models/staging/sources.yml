@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: routewise_logistics
+    database: amplified-ward-416314
+    schema: routewise_logistics
+    tables:
+      - name: fact_shipments
+      - name: dim_carrier
+      - name: dim_route

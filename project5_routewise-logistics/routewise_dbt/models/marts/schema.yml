@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: mart_carrier_performance
+    columns:
+      - name: carrier
+        data_tests:
+          - not_null
+          - unique
+
+
+      - name: total_shipment
+        data_tests:
+          - not_null
+
+      - name: delay_rate
+        data_tests:
+          - not_null
