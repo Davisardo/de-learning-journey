@@ -6,47 +6,47 @@ import pandas as pd
 # ============================================================
 
 # 1. LOAD DATA
-df = pd.read_csv(
-    r"D:\de-learning-journey\data\logistics\DataCoSupplyChainDataset.csv",
-    encoding="latin-1",
-)
+df = pd.read_csv("data/DataCoSupplyChainDataset.csv", encoding="latin-1")
 
 # 2. STRUCTURAL CHECK
 print("\n=== Structural Check ===")
 print(f"Total Baris: {df.shape[0]}")
 print(f"Total Kolom: {df.shape[1]}")
-print(df.columns.tolist())
-print(df.dtypes)
+print(df.columns.tolist())   # nama semua kolom
+print(df.dtypes)             # tipe data tiap kolom
 print("=" * 50)
 
 # 3. COMPLETENESS CHECK
-missing = df.isnull().sum() / len(df) * 100
+missing = df.isnull().sum() / len(df) * 100  # persentase missing per kolom
 print("\n=== Missing Values (%) ===")
-print(missing[missing > 0].sort_values(ascending=False))
+print(missing[missing > 0].sort_values(ascending=False))  # tampilkan hanya yang ada missing
 print("=" * 50)
 
 # 4. DISTRIBUTION CHECK
 print("\n=== Delivery Status ===")
-print(df["Delivery Status"].value_counts())
-
+print(df["Delivery Status"].value_counts())  # sebaran status pengiriman
 print("\n=== Shipping Mode ===")
-print(df["Shipping Mode"].value_counts())
+print(df["Shipping Mode"].value_counts())    # sebaran jenis pengiriman
 print("=" * 50)
-
 
 # 5. BUSINESS QUESTION — HITUNG % DELAY
 print("\n=== Business Question ===")
 order_date = pd.to_datetime(df["order date (DateOrders)"], errors="coerce")
+
+# tanggal sampai sebenarnya = tanggal order + hari pengiriman aktual
 actual_delivery_date = order_date + pd.to_timedelta(
     df["Days for shipping (real)"], unit="D"
 )
+# tanggal sampai yang dijadwalkan = tanggal order + hari yang dijadwalkan
 expected_delivery_date = order_date + pd.to_timedelta(
     df["Days for shipment (scheduled)"], unit="D"
 )
-df["is_delayed"] = actual_delivery_date > expected_delivery_date
+
+df["is_delayed"] = actual_delivery_date > expected_delivery_date  # True kalau delay
 pct_delay = df["is_delayed"].sum() / len(df) * 100
 print(f"% Delay: {pct_delay:.2f}%")
 
+# delay rate per jenis shipping mode
 delay_by_mode = df.groupby("Shipping Mode")["is_delayed"].mean() * 100
 print("\n=== Delay Rate per Shipping Mode (%) ===")
 print(delay_by_mode.sort_values(ascending=False).round(2))
@@ -54,5 +54,5 @@ print(delay_by_mode.sort_values(ascending=False).round(2))
 print("\n=== SUMMARY ===")
 print(f"Total shipment: {len(df):,}")
 print(f"Overall delay rate: {pct_delay:.2f}%")
-print(f"Shipping mode paling bermasalah: {delay_by_mode.idxmax()}")
+print(f"Shipping mode paling bermasalah: {delay_by_mode.idxmax()}")  # mode dengan delay rate tertinggi
 print("=" * 50)

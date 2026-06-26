@@ -1,11 +1,11 @@
 import pandas as pd
 
-credit = pd.read_csv("data/credit/creditcard.csv")
+data = pd.read_csv("data/creditcard.csv")
 
 print("=== CREDIT ===")
-print(f"Shape: {credit.shape}")
-print(credit.head(3))
-print(credit.dtypes)
-print(credit.isnull().sum().sum())
-print(credit['Class'].value_counts())
-print(credit['Class'].value_counts(normalize=True) *100)
+print(f"Shape: {data.shape}")  # jumlah baris & kolom
+print(data.head(3))  # contoh isi data
+print(data.dtypes)  # tipe data tiap kolom
+print(data.isnull().sum().sum())  # total missing values
+print(data["Class"].value_counts())  # jumlah normal vs fraud
+print(data["Class"].value_counts(normalize=True) * 100)  # persentase normal vs fraud

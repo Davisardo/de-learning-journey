@@ -7,7 +7,7 @@ logging.basicConfig(
 
 
 def load_data():
-    df = pd.read_csv("data/credit/creditcard.csv")
+    df = pd.read_csv("data/creditcard.csv")  # baca dataset mentah
     logging.info(f"Loaded {len(df)} baris")
     return df
 
@@ -27,7 +27,7 @@ def check_duplicates(df):
 def check_amount_range(df):
     min_val = df["Amount"].min()
     max_val = df["Amount"].max()
-    zero_or_negative = (df["Amount"] <= 0).sum()
+    zero_or_negative = (df["Amount"] <= 0).sum()  # transaksi amount 0 atau negatif
     logging.info(f"Amount range: {min_val} - {max_val}, <=: {zero_or_negative}")
     return min_val, max_val, zero_or_negative
 
@@ -46,8 +46,9 @@ if __name__ == "__main__":
     amount = check_amount_range(data)
     time = check_time_range(data)
 
-zero_amount = data[data["Amount"] == 0]
-print(zero_amount["Class"].value_counts())
+    # cek apakah transaksi amount=0 cenderung fraud atau normal
+    zero_amount = data[data["Amount"] == 0]
+    print(zero_amount["Class"].value_counts())
 
-data_clean = data.drop_duplicates()
-logging.info(f"Setelah drop duplikat: {len(data_clean)} baris")
+    data_clean = data.drop_duplicates()
+    logging.info(f"Setelah drop duplikat: {len(data_clean)} baris")

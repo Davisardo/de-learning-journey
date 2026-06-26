@@ -7,14 +7,14 @@ logger = logging.getLogger(__name__)
 
 
 def load_data():
-    filepath = r"D:\de-learning-journey\data\logistics\DataCoSupplyChainDataset.csv"
+    filepath = "data/DataCoSupplyChainDataset.csv"  # path relative dari project5_routewise-logistics
     df = pd.read_csv(filepath, encoding="latin-1")
     logger.info(f"[LOAD] Loaded {len(df):,} baris dari CSV")
     return df
 
 
 def validate_and_clean(df):
-    initial_rows = len(df)
+    initial_rows = len(df)  # baseline - untuk hitung berapa baris yang dibuang nanti
     logger.info(f"[START] Total baris masuk: {initial_rows:,}")
     logger.info("=" * 50)
 
@@ -36,19 +36,19 @@ def validate_and_clean(df):
     logger.info(f"[KOLOM KOSONG] Dibuang: {before_missing - len(df):,} baris")
 
     # STEP 3B - HANDLE MISSING VALUES (kolom OPSIONAL → fill)
-    df['Order Zipcode'] = df['Order Zipcode'].fillna('UNKNOWN')
-    df['Customer Zipcode'] = df['Customer Zipcode'].fillna('UNKNOWN')
-    logger.info(f"Kolom 'Order Zipcode' dan 'Customer Zipcode' yang kosong sudah di isi dengan 'UNKNOWN'")
+    df["Order Zipcode"] = df["Order Zipcode"].fillna("UNKNOWN")
+    df["Customer Zipcode"] = df["Customer Zipcode"].fillna("UNKNOWN")
+    logger.info("Kolom 'Order Zipcode' dan 'Customer Zipcode' yang kosong sudah di isi dengan 'UNKNOWN'")
 
-    # STEP 4A - VALIDATE LOGIC (nilai negatif)
+    # STEP 4A - VALIDATE LOGIC (nilai negatif tidak masuk akal untuk hari pengiriman)
     before_negative = len(df)
-    df = df[df['Days for shipping (real)'] >= 0]
-    df = df[df['Days for shipment (scheduled)'] >= 0]
+    df = df[df["Days for shipping (real)"] >= 0]
+    df = df[df["Days for shipment (scheduled)"] >= 0]
     logger.info(f"[VALIDATE] Nilai negatif dibuang: {before_negative - len(df):,} baris")
 
     # STEP 4B - VALIDATE LOGIC (Order Id tidak valid)
     before_invalid = len(df)
-    df = df[df['Order Id'].notna() & (df['Order Id'] != 0)]
+    df = df[df["Order Id"].notna() & (df["Order Id"] != 0)]
     logger.info(f"[VALIDATE] Order Id tidak valid dibuang: {before_invalid - len(df):,} baris")
 
     # STEP 5 - LOG HASIL AKHIR

@@ -31,13 +31,12 @@ def load_to_bigquery(df, table_name, write_mode="WRITE_TRUNCATE"):
     # STEP 3 - LOAD
     job.result()
     logger.info(
-        f" [LOADED] {table_name}: {len(df):,} baris berhasil di-load (mode: {write_mode})"
+        f"[LOADED] {table_name}: {len(df):,} baris berhasil di-load (mode: {write_mode})"
     )
 
     # STEP 4 - VERIFY & LOGGING
     table = client.get_table(table_id)
-    logger.info(f"[LOADED] {table_name}: {len(df):,} baris dikirim")
-    logger.info(f"[VERIFY] {table_name}: {table.num_rows:,} baris di Bigquery")
+    logger.info(f"[VERIFY] {table_name}: {table.num_rows:,} baris di BigQuery")
 
 
 if __name__ == "__main__":
