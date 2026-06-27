@@ -21,7 +21,7 @@ CSV Files (Kaggle)
      │           4 tabel: dim_orders, fact_payments,
      │                    dim_customers, dim_products
      ▼
-[ Transform ]  ← dbt (project2_dbt)
+[ Transform ]  ← dbt (warehouse_dbt)
      │           mart_payment_summary — agregasi per payment type
      │           4 data tests: not_null & unique
      ▼
@@ -34,7 +34,7 @@ CSV Files (Kaggle)
 ## Tech Stack
 
 | Layer           | Tools                        |
-|-----------------|------------------------------|
+|-----------------|-------------------------------|
 | Bahasa          | Python 3.13                  |
 | Data source     | Kaggle — Olist Brazil Dataset |
 | Transform       | Pandas                       |
@@ -72,29 +72,33 @@ dim_customers ─── fact_payments ─── dim_products
 ```
 de-learning-journey/
 └── project2_warehouse/
-│   ├── transform.py       # Baca CSV, buat fact & dimension tables
-│   └── load_bigquery.py   # Upload tabel ke Google BigQuery
-└── project2_dbt/
-    ├── models/
-    │   ├── mart_payment_summary.sql  # Agregasi per payment type
-    │   └── schema.yml                # Sources & data tests
-    ├── dbt_project.yml
-    └── profiles.yml (di ~/.dbt/)
+    ├── data/
+    │   ├── olist_orders_dataset.csv
+    │   ├── olist_order_payments_dataset.csv
+    │   ├── olist_customers_dataset.csv
+    │   └── olist_products_dataset.csv
+    ├── transform.py       # Baca CSV, buat fact & dimension tables
+    ├── load_bigquery.py   # Upload tabel ke Google BigQuery
+    └── warehouse_dbt/
+        ├── models/
+        │   ├── mart_payment_summary.sql  # Agregasi per payment type
+        │   └── schema.yml                # Sources & data tests
+        └── dbt_project.yml
 ```
+
+> `profiles.yml` disimpan global di `~/.dbt/profiles.yml`, bukan di dalam folder project.
 
 ---
 
 ## Cara Menjalankan
 
 ### 1. Clone repo
-
 ```bash
 git clone https://github.com/Davisardo/de-learning-journey.git
-cd de-learning-journey
+cd de-learning-journey/project2_warehouse
 ```
 
 ### 2. Buat virtual environment
-
 ```bash
 python -m venv venv
 venv\Scripts\activate
@@ -102,11 +106,9 @@ pip install pandas google-cloud-bigquery db-dtypes dbt-bigquery
 ```
 
 ### 3. Download dataset
-
-Download dari [Kaggle — Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), simpan ke:
-
+Download dari [Kaggle — Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), simpan ke folder `data/` di dalam `project2_warehouse/`:
 ```
-data/olist/
+project2_warehouse/data/
 ├── olist_orders_dataset.csv
 ├── olist_order_payments_dataset.csv
 ├── olist_customers_dataset.csv
@@ -114,27 +116,23 @@ data/olist/
 ```
 
 ### 4. Setup autentikasi Google Cloud
-
 ```bash
 gcloud auth application-default login
 ```
 
 ### 5. Jalankan pipeline ingestion
-
 ```bash
-python project2_warehouse/load_bigquery.py
+python load_bigquery.py
 ```
 
 ### 6. Jalankan dbt
-
 ```bash
-cd project2_dbt
+cd warehouse_dbt
 dbt run
 dbt test
 ```
 
 ### 7. Lihat dashboard
-
 Buka [Looker Studio](https://lookerstudio.google.com) → connect ke BigQuery → pilih tabel `mart_payment_summary`.
 
 ---

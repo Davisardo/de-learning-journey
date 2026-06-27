@@ -30,7 +30,7 @@ CoinGecko API
 ## Tech Stack
 
 | Layer           | Tools                 |
-|-----------------|-----------------------|
+|-----------------|------------------------|
 | Bahasa          | Python 3.13           |
 | Data source     | CoinGecko API (free)  |
 | Transform       | Pandas                |
@@ -45,7 +45,7 @@ CoinGecko API
 
 ```
 de-learning-journey/
-└── crypto_pipeline/
+└── project1_crypto_pipeline/
     ├── extract.py      # Ambil data dari CoinGecko API
     ├── transform.py    # Bersihkan dan transformasi data
     ├── load.py         # Load ke PostgreSQL
@@ -57,14 +57,12 @@ de-learning-journey/
 ## Cara Menjalankan
 
 ### 1. Clone repo
-
 ```bash
 git clone https://github.com/Davisardo/de-learning-journey.git
 cd de-learning-journey
 ```
 
 ### 2. Buat virtual environment
-
 ```bash
 python -m venv venv
 venv\Scripts\activate
@@ -72,7 +70,6 @@ pip install requests pandas psycopg2-binary
 ```
 
 ### 3. Jalankan PostgreSQL via Docker
-
 ```bash
 docker run --name crypto-postgres \
   -e POSTGRES_USER=davis \
@@ -82,13 +79,11 @@ docker run --name crypto-postgres \
 ```
 
 ### 4. Jalankan pipeline
-
 ```bash
-python crypto_pipeline/pipeline.py
+python project1_crypto_pipeline/pipeline.py
 ```
 
 ### 5. Lihat dashboard
-
 Buka Metabase di `http://localhost:3000` — connect ke PostgreSQL
 lalu buat visualisasi dari tabel `crypto_prices`.
 
