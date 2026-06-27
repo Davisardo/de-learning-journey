@@ -74,17 +74,17 @@ pip install -r requirements.txt
 
 ### 2. Data Quality & Validasi
 ```bash
-python project4_fintech/validate.py
+python project4_fintrack_fraud/validate.py
 ```
 
 ### 3. Transformasi Data & Pembentukan Schema
 ```bash
-python project4_fintech/transform.py
+python project4_fintrack_fraud/transform.py
 ```
 
 ### 4. Load ke BigQuery (Incremental)
 ```bash
-python project4_fintech/load_to_bq.py
+python project4_fintrack_fraud/load_to_bq.py
 ```
 
 ### 5. dbt Transform & Testing
