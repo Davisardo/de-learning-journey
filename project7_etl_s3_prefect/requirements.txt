@@ -1,0 +1,7 @@
+pandas
+
+boto3
+
+prefect
+
+python-dotenv
